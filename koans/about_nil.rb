@@ -15,7 +15,7 @@ class AboutNil < Neo::Koan
       # What exception has been caught?
       assert_equal NoMethodError, ex.class
 
-      # What message was attached to the exception?
+      # What message was attached to the exception? NoMethodError
       # (HINT: replace __ with part of the error message.)
       assert_match(/method/, ex.message)
     end
@@ -33,6 +33,8 @@ class AboutNil < Neo::Koan
     # or
     #    obj == nil
     # Why?
+
+    # Answer: obj.nil? is better because it is more explicit and easier to read.
   end
 
 end

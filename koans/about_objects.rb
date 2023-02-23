@@ -38,6 +38,9 @@ class AboutObjects < Neo::Koan
 
     # THINK ABOUT IT:
     # What pattern do the object IDs for small integers follow?
+
+    # Answer: The object IDs for small integers follow a pattern of odd numbers.
+    # The object IDs for small integers are the same as the integer multiplied by 2 plus 1.
   end
 
   def test_clone_creates_a_different_object

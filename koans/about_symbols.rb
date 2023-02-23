@@ -33,6 +33,9 @@ class AboutSymbols < Neo::Koan
   # Why do we convert the list of symbols to strings and then compare
   # against the string value rather than against symbols?
 
+  # Answer: Becuase strings are immutable and symbols are not. If we compared
+  # against symbols, we would be comparing against the same symbol object.
+
   in_ruby_version("mri") do
     RubyConstant = "What is the sound of one hand clapping?"
     def test_constants_become_symbols
@@ -97,4 +100,6 @@ class AboutSymbols < Neo::Koan
   # THINK ABOUT IT:
   #
   # Why is it not a good idea to dynamically create a lot of symbols?
+
+  # Answer: Because symbols are immutable and take up more memory.
 end
