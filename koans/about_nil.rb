@@ -34,7 +34,8 @@ class AboutNil < Neo::Koan
     #    obj == nil
     # Why?
 
-    # Answer: obj.nil? is better because it is more explicit and easier to read.
+    # ANSWER:
+    # obj.nil? is better because it is more explicit and easier to read.
   end
 
 end

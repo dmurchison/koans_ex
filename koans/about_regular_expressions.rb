@@ -34,7 +34,8 @@ class AboutRegularExpressions < Neo::Koan
     #
     # When would * fail to match?
 
-    # ANSWER: When an order is not specified, the * operator will match the longest possible string.
+    # ANSWER: 
+    # When an order is not specified, the * operator will match the longest possible string.
   end
 
   # THINK ABOUT IT:
@@ -43,7 +44,8 @@ class AboutRegularExpressions < Neo::Koan
   #
   # Why?
 
-  # ANSWER: Because they match the longest possible string.
+  # ANSWER: 
+  # Because they match the longest possible string.
 
   # ------------------------------------------------------------------
 
@@ -150,7 +152,8 @@ class AboutRegularExpressions < Neo::Koan
   #
   # Explain the difference between a character class ([...]) and alternation (|).
 
-  # Answer: A character class can be matched with any of the chars.
+  # ANSWER: 
+  # A character class can be matched with any of the chars.
   # Alternations are allowed to be matched, but only one of them can be matched.
   # ------------------------------------------------------------------
 
