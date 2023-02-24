@@ -1,5 +1,10 @@
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
+
+# NOTES:
+#  I think blocks, procs, yeilds amd lambdas have slight differences, 
+#  but it's mostly about the developer's preference.
+
 class AboutBlocks < Neo::Koan
   def method_with_block
     result = yield
