@@ -31,7 +31,7 @@ class AboutHashes < Neo::Koan
     #
     # Why might you want to use #fetch instead of #[] when accessing hash keys?
 
-    # Answer:
+    # ANSWER:
     # Because with fetch you can specify a default value to return if the key is not found.
   end
 
@@ -45,7 +45,7 @@ class AboutHashes < Neo::Koan
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
 
-    # Answer:
+    # ANSWER:
     # Because the order of the keys in a hash is not guaranteed.
     # Note: Finishing the Hash#test_hash_is_unordered is what helped me understand this.
   end

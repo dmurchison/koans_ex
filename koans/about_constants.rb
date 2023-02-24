@@ -69,7 +69,8 @@ class AboutConstants < Neo::Koan
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
 
-  # ANSWER: The constant in the lexical scope has precedence.
+  # ANSWER: 
+  # The constant in the lexical scope has precedence.
   # I think this is because the constant is defined in the lexical scope.
 
   # ------------------------------------------------------------------
@@ -88,7 +89,8 @@ class AboutConstants < Neo::Koan
   # scope, or the constant from the inheritance hierarchy?  Why is it
   # different than the previous answer?
 
-  # ANSWER: The constant in the inheritance hierarchy has precedence.
+  # ANSWER: 
+  # The constant in the inheritance hierarchy has precedence.
   # This is because the class definition is not in the lexical scope
   # of the constant definition.
 
