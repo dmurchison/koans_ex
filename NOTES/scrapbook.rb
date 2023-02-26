@@ -15,3 +15,30 @@
 
 # # (Notice that the proc breaks out of the method when it returns the value.)
 
+
+
+class DiceGame
+  
+  attr_accessor :values
+
+  def roll(num)
+    @values = []
+    num.times { @values << rand(1..6) }
+  end
+
+end
+
+
+
+dice = DiceGame.new
+dice.roll(5)
+first_roll = [1,2,3,4,5]
+dice.roll(5)
+second_roll = [1,2,3,4,5]
+
+p first_roll == second_roll
+
+
+
+
+
