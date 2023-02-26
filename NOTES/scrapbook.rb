@@ -17,32 +17,32 @@
 
 
 
-class DiceGame
+# class DiceGame
   
-  attr_accessor :values
+#   attr_accessor :values
 
-  def roll(num)
-    @values = []
-    num.times { @values << rand(1..6) }
-  end
+#   def roll(num)
+#     @values = []
+#     num.times { @values << rand(1..6) }
+#   end
 
-end
+# end
 
-dice = DiceGame.new
-dice.roll(5)
-first_roll = [1,2,3,4,5]
-dice.roll(5)
-second_roll = [1,2,3,4,5]
+# dice = DiceGame.new
+# dice.roll(5)
+# first_roll = [1,2,3,4,5]
+# dice.roll(5)
+# second_roll = [1,2,3,4,5]
 
-p first_roll.object_id == second_roll.object_id
+# p first_roll.object_id == second_roll.object_id
 
-class AllMessageCatcher
-  def method_missing(method_name, *args, &block)
-    "Someone called #{method_name} with <#{args.join(", ")}>"
-  end
-end
+# class AllMessageCatcher
+#   def method_missing(method_name, *args, &block)
+#     "Someone called #{method_name} with <#{args.join(", ")}>"
+#   end
+# end
 
-catcher = AllMessageCatcher.new
-p catcher.foobar
-p catcher.foobaz(1)
-p catcher.sum(1,2,3,4,5,6)
+# catcher = AllMessageCatcher.new
+# p catcher.foobar
+# p catcher.foobaz(1)
+# p catcher.sum(1,2,3,4,5,6)
