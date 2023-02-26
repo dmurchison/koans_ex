@@ -36,3 +36,13 @@ second_roll = [1,2,3,4,5]
 
 p first_roll.object_id == second_roll.object_id
 
+class AllMessageCatcher
+  def method_missing(method_name, *args, &block)
+    "Someone called #{method_name} with <#{args.join(", ")}>"
+  end
+end
+
+catcher = AllMessageCatcher.new
+p catcher.foobar
+p catcher.foobaz(1)
+p catcher.sum(1,2,3,4,5,6)
