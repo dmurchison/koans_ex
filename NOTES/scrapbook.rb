@@ -28,17 +28,11 @@ class DiceGame
 
 end
 
-
-
 dice = DiceGame.new
 dice.roll(5)
 first_roll = [1,2,3,4,5]
 dice.roll(5)
 second_roll = [1,2,3,4,5]
 
-p first_roll == second_roll
-
-
-
-
+p first_roll.object_id == second_roll.object_id
 
