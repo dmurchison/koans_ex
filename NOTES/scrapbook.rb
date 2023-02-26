@@ -30,16 +30,4 @@
 
 # ------------------------------------------------------------------
 
-# FILES
-
-def count_lines(file_name)
-  file = File.open(file_name)
-  count = ""
-  while file.gets
-    count += 1
-  end
-  count
-end
-
-p count_lines("file_test.txt")
 

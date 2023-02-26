@@ -29,13 +29,39 @@ require File.expand_path(File.dirname(__FILE__) + '/neo')
 #
 # Your goal is to write the score method.
 
+
+require "byebug"
+
 def score(dice)
-  
+  # debugger
+  if dice.empty?
+    return 0
+  end
+
+  dice.sort!    # Sort dice
+  score = 0     # Set score to 0
+
+  if dice[1] == dice[0] && dice[1] == dice[2]     # Check if the first 3 dice are the same
+    score = dice[1] == 1 ? 1000 : dice[1] * 100   # If they are the same, check if they are 1's or not and set score accordingly
+    score += score(dice[3..-1])                   # If there are more than 3 dice, call score on the remaining dice and add it to the score.
+    return score                                  # Return score
+  end
+
+  # debugger
+  dice.each do |die|     # Loop through each die
+    if die == 1          # If die is 1
+      score += 100       # Add 100 to score
+    elsif die == 5       # If die is 5
+      score += 50        # Add 50 to score
+    end
+  end
+
+  return score    # Return score
 end
 
 class AboutScoringProject < Neo::Koan
   def test_score_of_an_empty_list_is_zero
-    assert_equal 0, score([])
+    assert_equal 0, score([])   # By just listing a 0 I can path this first method 
   end
 
   def test_score_of_a_single_roll_of_5_is_50
