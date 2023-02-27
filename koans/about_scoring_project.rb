@@ -38,24 +38,29 @@ def score(dice)
     return 0
   end
 
-  dice.sort!    # Sort dice
-  score = 0     # Set score to 0
+  dice = dice.tally    # Tally dice
+  score = 0           # Set score to 0
 
-  if dice[1] == dice[0] && dice[1] == dice[2]     # Check if the first 3 dice are the same
-    score = dice[1] == 1 ? 1000 : dice[1] * 100   # If they are the same, check if they are 1's or not and set score accordingly
-    score += score(dice[3..-1])                   # If there are more than 3 dice, call score on the remaining dice and add it to the score.
-    return score                                  # Return score
-  end
-
-  # debugger
-  dice.each do |die|     # Loop through each die
-    if die == 1          # If die is 1
-      score += 100       # Add 100 to score
-    elsif die == 5       # If die is 5
-      score += 50        # Add 50 to score
+  dice.each_pair do |die, count|
+    # debugger
+    if die == 1                      # I went through all of the score options and reset them with the elsif statements here
+      if count >= 3                  
+        score += 1000                 
+        count -= 3                    # And by subtracting 3 from the count each time, I can get the score for the remaining dice
+      end
+      score += count * 100            # Add the score for the remaining dice
+    elsif die == 5                   
+      if count >= 3                  
+        score += 500                  
+        count -= 3                    
+      end
+      score += count * 50             
+    elsif count >= 3                 # Now that all of the score options are accounted for, I can just add the score for the remaining dice
+      score += die * 100             # Add die * 100 to score
     end
   end
 
+  # debugger
   return score    # Return score
 end
 
@@ -90,6 +95,7 @@ class AboutScoringProject < Neo::Koan
     assert_equal 400, score([4,4,4])
     assert_equal 500, score([5,5,5])
     assert_equal 600, score([6,6,6])
+    assert_equal 600, score([6,2,6,3,6]) # This passes now
   end
 
   def test_score_of_mixed_is_sum
