@@ -1,22 +1,23 @@
-require File.expand_path(File.dirname(__FILE__) + '/neo')
+# frozen_string_literal: true
 
-C = "top level"
+require File.expand_path("#{File.dirname(__FILE__)}/neo")
+
+C = 'top level'
 
 class AboutConstants < Neo::Koan
-
-  C = "nested"
+  C = 'nested'
 
   def test_nested_constants_may_also_be_referenced_with_relative_paths
-    assert_equal "nested", C
+    assert_equal 'nested', C
   end
 
   def test_top_level_constants_are_referenced_by_double_colons
-    assert_equal "top level", ::C
+    assert_equal 'top level', ::C
   end
 
   def test_nested_constants_are_referenced_by_their_complete_path
-    assert_equal "nested", AboutConstants::C
-    assert_equal "nested", ::AboutConstants::C
+    assert_equal 'nested', AboutConstants::C
+    assert_equal 'nested', ::AboutConstants::C
   end
 
   # ------------------------------------------------------------------
@@ -69,7 +70,7 @@ class AboutConstants < Neo::Koan
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
 
-  # ANSWER: 
+  # ANSWER:
   # The constant in the lexical scope has precedence.
   # I think this is because the constant is defined in the lexical scope.
 
@@ -89,11 +90,8 @@ class AboutConstants < Neo::Koan
   # scope, or the constant from the inheritance hierarchy?  Why is it
   # different than the previous answer?
 
-  # ANSWER: 
+  # ANSWER:
   # The constant in the inheritance hierarchy has precedence.
   # This is because the class definition is not in the lexical scope
   # of the constant definition.
-
-
-
 end

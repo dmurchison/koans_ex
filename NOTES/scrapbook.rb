@@ -1,4 +1,4 @@
- 
+# frozen_string_literal: true
 # # Notes and Scrapbook
 
 # ## Difference between procs and lambdas
@@ -9,16 +9,14 @@
 #   "But what about me?" # Never reached
 # end
 
-# puts proc_demo_method 
-# # Output 
+# puts proc_demo_method
+# # Output
 # # Only I print!
 
 # # (Notice that the proc breaks out of the method when it returns the value.)
 
-
-
 # class DiceGame
-  
+
 #   attr_accessor :values
 
 #   def roll(num)

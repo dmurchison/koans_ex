@@ -1,16 +1,17 @@
-require File.expand_path(File.dirname(__FILE__) + '/neo')
+# frozen_string_literal: true
+
+require File.expand_path("#{File.dirname(__FILE__)}/neo")
 
 # Implement a DiceSet Class here:
 #
 class DiceSet
-  
-  attr_accessor :values   # Create a getter and setter for the values
+  attr_accessor :values # Create a getter and setter for the values
 
-  def roll(num)     # num is the number of dice to roll
-    @values = []    # create an array of the dice rolls
-    num.times { @values << rand(1..6) }   # shovel into @values a random number between 1 and 6 num.times
+  # num is the number of dice to roll
+  def roll(num)
+    @values = [] # create an array of the dice rolls
+    num.times { @values << rand(1..6) } # shovel into @values a random number between 1 and 6 num.times
   end
-
 end
 
 class AboutDiceProject < Neo::Koan
@@ -23,9 +24,9 @@ class AboutDiceProject < Neo::Koan
     dice = DiceSet.new
 
     dice.roll(5)
-    assert dice.values.is_a?(Array), "should be an array"
+    assert dice.values.is_a?(Array), 'should be an array'
     assert_equal 5, dice.values.size
-    dice.values.each do |value|
+    dice.each_value do |value|
       assert value >= 1 && value <= 6, "value #{value} must be between 1 and 6"
     end
   end
@@ -48,7 +49,7 @@ class AboutDiceProject < Neo::Koan
     second_time = dice.values
 
     assert_not_equal first_time.object_id, second_time.object_id,
-      "Two rolls should not be equal"
+                     'Two rolls should not be equal'
 
     # THINK ABOUT IT:
     #
@@ -57,7 +58,7 @@ class AboutDiceProject < Neo::Koan
     # better way to test this?
 
     # ANSWER:
-    # We can just check that the object_id's are not equal. 
+    # We can just check that the object_id's are not equal.
     # This way even if the `dice.values` arrays are exactly the same, we would
     # know they were two seperate rolls.
   end
@@ -71,5 +72,4 @@ class AboutDiceProject < Neo::Koan
     dice.roll(1)
     assert_equal 1, dice.values.size
   end
-
 end

@@ -1,4 +1,6 @@
-require File.expand_path(File.dirname(__FILE__) + '/neo')
+# frozen_string_literal: true
+
+require File.expand_path("#{File.dirname(__FILE__)}/neo")
 
 class AboutSymbols < Neo::Koan
   def test_symbols_are_symbols
@@ -19,13 +21,13 @@ class AboutSymbols < Neo::Koan
     symbol1 = :a_symbol
     symbol2 = :a_symbol
 
-    assert_equal true, symbol1           == symbol2
-    assert_equal true, symbol1.object_id == symbol2.object_id
+    assert_equal true, symbol1 == symbol2
+    assert_equal true, symbol1.equal?(symbol2)
   end
 
   def test_method_names_become_symbols
-    symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
-    assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
+    symbols_as_strings = Symbol.all_symbols.map(&:to_s)
+    assert_equal true, symbols_as_strings.include?('test_method_names_become_symbols')
   end
 
   # THINK ABOUT IT:
@@ -33,21 +35,21 @@ class AboutSymbols < Neo::Koan
   # Why do we convert the list of symbols to strings and then compare
   # against the string value rather than against symbols?
 
-  # ANSWER: 
+  # ANSWER:
   # Becuase strings are immutable and symbols are not. If we compared
   # against symbols, we would be comparing against the same symbol object.
 
-  in_ruby_version("mri") do
-    RubyConstant = "What is the sound of one hand clapping?"
+  in_ruby_version('mri') do
+    RubyConstant = 'What is the sound of one hand clapping?'
     def test_constants_become_symbols
-      all_symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
+      all_symbols_as_strings = Symbol.all_symbols.map(&:to_s)
 
-      assert_equal false, all_symbols_as_strings.include?("What is the sound of one hand clapping?")
+      assert_equal false, all_symbols_as_strings.include?('What is the sound of one hand clapping?')
     end
   end
 
   def test_symbols_can_be_made_from_strings
-    string = "catsAndDogs"
+    string = 'catsAndDogs'
     assert_equal :catsAndDogs, string.to_sym
   end
 
@@ -58,7 +60,7 @@ class AboutSymbols < Neo::Koan
   end
 
   def test_symbols_with_interpolation_can_be_built
-    value = "and"
+    value = 'and'
     symbol = :"cats #{value} dogs"
 
     assert_equal :"cats and dogs".to_sym, symbol
@@ -68,13 +70,13 @@ class AboutSymbols < Neo::Koan
     symbol = :cats
     string = "It is raining #{symbol} and dogs."
 
-    assert_equal "It is raining cats and dogs.", string
+    assert_equal 'It is raining cats and dogs.', string
   end
 
   def test_symbols_are_not_strings
     symbol = :ruby
     assert_equal false, symbol.is_a?(String)
-    assert_equal false, symbol.eql?("ruby")
+    assert_equal false, symbol.eql?('ruby')
   end
 
   def test_symbols_do_not_have_string_methods
@@ -95,13 +97,13 @@ class AboutSymbols < Neo::Koan
   end
 
   def test_symbols_can_be_dynamically_created
-    assert_equal :catsdogs, ("cats" + "dogs").to_sym
+    assert_equal :catsdogs, 'catsdogs'.to_sym
   end
 
   # THINK ABOUT IT:
   #
   # Why is it not a good idea to dynamically create a lot of symbols?
 
-  # ANSWER: 
+  # ANSWER:
   # Because symbols are immutable and take up more memory.
 end
